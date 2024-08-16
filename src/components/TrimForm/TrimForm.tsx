@@ -63,7 +63,7 @@ const TrimForm: React.FC = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${user?.token}`,
+            Authorization: `Bearer ${user?.uid}`,
           },
           body: JSON.stringify({ long_url, custom_url }),
         }

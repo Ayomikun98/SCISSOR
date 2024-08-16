@@ -32,7 +32,7 @@ const MyLinks: React.FC = () => {
           {
             headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${user?.token}`,
+              Authorization: `Bearer ${user?.uid}`,
             },
           }
         );
@@ -44,7 +44,7 @@ const MyLinks: React.FC = () => {
             setLoading(false);
           }
           const myLinks = linksData.filter(
-            (link: LinkData) => link.user === user?.username
+            (link: LinkData) => link.user === user?.displayName
           );
           setAllLinks(myLinks);
         } else {

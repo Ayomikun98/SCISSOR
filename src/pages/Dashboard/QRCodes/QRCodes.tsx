@@ -27,7 +27,7 @@ const QRCodes: React.FC = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${user?.token}`,
+            Authorization: `Bearer ${user?.uid}`,
           },
         }
       );
@@ -38,7 +38,7 @@ const QRCodes: React.FC = () => {
           notify('Unable to get your links, please login and try again!');
           setLoading(false);
         }
-        const myLinks = linksData.filter((link: LinkData) => link.user === (user as { username: string; }).username);
+        const myLinks = linksData.filter((link: LinkData) => link.user === (user as unknown as { username: string; }).username);
 
         setAllLinks(myLinks);
       } else {

@@ -149,15 +149,7 @@ const Login: React.FC = () => {
         }
         return;
       }
-
-      const data = await response.json();
-      const token = data.access_token;
-      const user = {
-        username: formFields.username,
-        password: formFields.password,
-        token: token,
-      };
-      setUser(user);
+      
       notify("Login success, you're being redirected");
       resetFormFields();
       setLoading(false);

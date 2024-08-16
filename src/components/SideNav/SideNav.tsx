@@ -31,14 +31,13 @@ const SideNav: React.FC = () => {
 
   useEffect(() => {
     if (authenticatedUser) {
-      const names = authenticatedUser?.name?.split(' ');
+      const names = authenticatedUser?.displayName?.split(' ');
       firstName = names?.[0];
       initial = firstName?.charAt(0);
       setFirstNameState(firstName);
       setInitialState(initial);
     }
   }, [setAuthenticatedUser]);
-console.log(authenticatedUser?.profile_photo)
   return (
     <nav className="border border-r-gray-200">
       {/* Desktop Nav */}
@@ -307,8 +306,8 @@ console.log(authenticatedUser?.profile_photo)
                 <span className="flex">
                   <div className="bg-primary w-8 aspect-square flex items-center justify-center text-white font-bold my-auto rounded-full">
                     {authenticatedUser &&
-                    authenticatedUser.profile_photo !== null
-                      ? <img src={authenticatedUser.profile_photo} alt={initialState} />
+                    authenticatedUser.photoURL !== null
+                      ? <img src={authenticatedUser.photoURL} alt={initialState} />
                       : initialState}
                   </div>
                   <div className="ml-3 my-auto">{firstNameState}</div>
@@ -607,8 +606,8 @@ console.log(authenticatedUser?.profile_photo)
                   <span className="flex">
                     <div className="bg-primary w-8 aspect-square flex items-center justify-center text-white font-bold my-auto rounded-full">
                       {authenticatedUser &&
-                      authenticatedUser.profile_photo !== null
-                        ?<img src={authenticatedUser.profile_photo} alt={initialState} /> 
+                      authenticatedUser.photoURL !== null
+                        ?<img src={authenticatedUser.photoURL} alt={initialState} /> 
                         : initialState}
                     </div>
                     <div className="ml-3 my-auto">{firstNameState}</div>
