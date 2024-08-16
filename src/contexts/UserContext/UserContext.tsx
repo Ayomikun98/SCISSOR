@@ -2,12 +2,18 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { onAuthStateChanged, User } from "firebase/auth"
 import { auth } from "../../utils/firebase/firebase.utils";
 
+interface LocalUser {
+  name?: string;
+  username: string;
+  token: string;
+  profile_photo?: string | null;
+}
 
 interface UserContextType {
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  authenticatedUser: User | null;
-  setAuthenticatedUser: React.Dispatch<React.SetStateAction<User | null>>;
+  user: LocalUser | User | null;
+  setUser: React.Dispatch<React.SetStateAction<LocalUser | User | null>>;
+  authenticatedUser: LocalUser | User | null;
+  setAuthenticatedUser: React.Dispatch<React.SetStateAction<LocalUser | User | null>>;
 }
 
 export const UserContext = createContext<UserContextType>({
@@ -22,8 +28,8 @@ interface UserProviderProps {
 }
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [authenticatedUser, setAuthenticatedUser] = useState<User | null>(null);
+  const [user, setUser] = useState<LocalUser | User | null>(null);
+  const [authenticatedUser, setAuthenticatedUser] = useState<LocalUser | User | null>(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
