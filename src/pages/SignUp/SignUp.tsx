@@ -14,9 +14,10 @@ import Button from "../../components/Button/Button"
 import Input from "../../components/Input/Input"
 import Footer from "../../components/Footer/Footer"
 import Loader from "../../components/Loader/Loader"
-import { auth } from "../../utils/firebase/firebase.utils";
+import { auth, db } from "../../utils/firebase/firebase.utils";
 import { provider } from "../../utils/firebase/firebase.utils";
 import { signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword } from "firebase/auth"
+import { setDoc, doc } from "firebase/firestore";
 
 interface FormFields {
   name: string;
@@ -88,34 +89,20 @@ const SignUp: React.FC = () => {
     }
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
-      
-      const response = await fetch(
-        'https://cutly.onrender.com/api/v1/users/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name,
-            email,
-            hashed_password: password,
-            address: 'Error 404 Location',
-            phone_number: '+234 hello scissor',
-          }),
-        }
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
       );
+      const user = userCredential.user;
+      const uid = user.uid;
 
-      if (response.ok) {
-        notify('Success, redirecting you to the login page');
-        redirectToLogin();
-      } else {
-        warn('Request failed with status ' + response.status);
-        setLoading(false);
-        throw new Error('Request failed with status ' + response.status);
-      }
-
+      await setDoc(doc(db, "users", uid), {
+        displayName: formFields.name,
+        email: formFields.email,
+        uid: uid,
+      });
+      
       resetFormFields();
       setLoading(false);
     } catch (err) {
