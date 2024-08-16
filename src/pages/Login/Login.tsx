@@ -129,7 +129,7 @@ const Login: React.FC = () => {
 
     try {
       await signInWithEmailAndPassword(auth, formFields.username, formFields.password)
-      
+
       const response = await fetch(
         'https://cutly.onrender.com/api/v1/users/login',
         {
@@ -150,14 +150,6 @@ const Login: React.FC = () => {
         return;
       }
 
-      const data = await response.json();
-      const token = data.access_token;
-      const user = {
-        username: formFields.username,
-        password: formFields.password,
-        token: token,
-      };
-      setUser(user);
       notify("Login success, you're being redirected");
       resetFormFields();
       setLoading(false);
