@@ -1,4 +1,4 @@
-import logo from '../../assets/images/scissors-logo-black.svg';
+import logo from '/src/assets/images/scissors-logo-black.svg';
 import { Link } from 'react-router-dom';
 import {
   socials,

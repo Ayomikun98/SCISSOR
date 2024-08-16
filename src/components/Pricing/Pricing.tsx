@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '..';
+import Button from '../Button/Button';
 import { pricingData } from '../../utils/pricingData/pricingData';
 // import line from './../../assets/images/vertical-line.svg';
 import Line from './../Line/Line'

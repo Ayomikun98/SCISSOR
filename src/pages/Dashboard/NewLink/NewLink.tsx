@@ -1,4 +1,4 @@
-import { TrimForm } from '../../../components';
+import TrimForm from '../../../components/TrimForm/TrimForm';
 import Layout from '../../../components/Layout/Layout';
 
 const NewLink: React.FC = () => {

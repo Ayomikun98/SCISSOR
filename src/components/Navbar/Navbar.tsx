@@ -5,6 +5,8 @@ import { UserContext } from '../../contexts/UserContext/UserContext';
 import { inform } from '../../App';
 import Logo from './../Logo/Logo';
 import Button from '../Button/Button';
+import { signOut } from "firebase/auth";
+import { auth } from '../../utils/firebase/firebase.utils';
 
 interface NavbarProps {}
 
@@ -17,13 +19,10 @@ const Navbar: React.FC<NavbarProps> = (): ReactElement => {
   };
   const { user, setUser } = useContext(UserContext);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     inform('Logging you out...');
-    setTimeout(() => {
-      localStorage.removeItem('user');
-      setUser(null);
-      navigateTo('/');
-    }, 2500);
+    signOut(auth);
+    navigateTo('/');
   };
 
   const showMenu = () => {

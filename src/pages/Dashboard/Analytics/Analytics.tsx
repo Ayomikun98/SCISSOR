@@ -1,5 +1,5 @@
 import Layout from '../../../components/Layout/Layout';
-import analyticsImage from '../../../assets/images/analytics.jpg';
+import analyticsImage from '/src/assets/images/analytics.jpg';
 import { Link } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 

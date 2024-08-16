@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, CircleLoader } from '../../../components';
+import Button from '../../../components/Button/Button';
 import Layout from '../../../components/Layout/Layout';
+import CircleLoader from "../../../components/CircleLoader/CircleLoader";
 import QRCode from './QRCode';
 import { notify } from '../../../App';
 import { useAuth } from '../../../contexts/UserContext/UserContext';

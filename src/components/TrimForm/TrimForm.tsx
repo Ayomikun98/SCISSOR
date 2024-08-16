@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Button, Input, Loader, LoginModal } from '..';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
+import Loader from '../Loader/Loader';
+import LoginModal from '../LoginModal/LoginModal';
 import { UserContext } from '../../contexts/UserContext/UserContext';
 import copy from 'clipboard-copy';
 import { notify, warn } from '../../App';

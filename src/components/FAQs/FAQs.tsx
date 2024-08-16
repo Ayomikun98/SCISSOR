@@ -1,5 +1,5 @@
 import FAQ from './FAQ';
-import line from '../../assets/images/vertical-line.svg';
+import line from '/src/assets/images/vertical-line.svg';
 import { faqsData } from '../../utils/faqsData/faqsData';
 
 const FAQs = () => {

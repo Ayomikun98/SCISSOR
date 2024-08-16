@@ -1,5 +1,5 @@
 import React from 'react';
-import line from './../../assets/images/vertical-line.svg';
+import line from '/src/assets/images/vertical-line.svg';
 import { whyData } from '../../utils/whyData/whyData';
 
 const WhyScissor: React.FC = () => {

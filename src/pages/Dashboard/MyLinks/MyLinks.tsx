@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, CircleLoader } from '../../../components';
+import Button from '../../../components/Button/Button';
+import CircleLoader from "../../../components/CircleLoader/CircleLoader"
 import { UserContext } from '../../../contexts/UserContext/UserContext';
 import Layout from '../../../components/Layout/Layout';
 import MyLink from './MyLink';

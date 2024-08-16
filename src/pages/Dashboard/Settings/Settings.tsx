@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../../../components/Layout/Layout';
-import settingsImage from '../../../assets/images/settings.jpg';
+import settingsImage from '/src/assets/images/settings.jpg';
 
 const Settings: React.FC = () => {
   return (

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
-import dashboardImage from '../../assets/images/dashboard.jpg';
+import dashboardImage from '/src/assets/images/dashboard.jpg';
 import { notify } from '../../App';
 import { useAuth } from '../../contexts/UserContext/UserContext';
-import { CircleLoader } from '../../components';
+import CircleLoader from '../../components/CircleLoader/CircleLoader';
 
 const Dashboard: React.FC = () => {
   const { user, setAuthenticatedUser } = useAuth();

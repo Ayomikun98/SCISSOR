@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "../../utils/firebase/firebase.utils";
 
 interface User {
   name?: string;
@@ -30,13 +32,14 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [authenticatedUser, setAuthenticatedUser] = useState<User | null>(null);
 
   useEffect(() => {
-    checkUserStatus();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    })
   }, []);
-
-  const checkUserStatus = () => {
-    let authUser = localStorage.getItem('user');
-    setUser(authUser ? JSON.parse(authUser) : null);
-  };
 
   const value: UserContextType = {
     user,

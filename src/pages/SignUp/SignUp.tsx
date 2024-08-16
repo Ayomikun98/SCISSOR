@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  signInWithGooglePopup,
   // createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
-import crossedEye from '../../assets/icons/crossed-eye.svg';
-import eye from '../../assets/icons/eye.svg';
-import googleLogo from '../../assets/icons/google-logo.svg';
-import appleLogo from '../../assets/icons/apple-logo.svg';
+import crossedEye from '/src/icons/crossed-eye.svg';
+import eye from '/src/icons/eye.svg';
+import googleLogo from '/src/icons/google-logo.svg';
+import appleLogo from '/src/icons/apple-logo.svg';
 
 import { ToastContainer } from 'react-toastify';
 import { inform, notify, warn } from '../../App';
-import { Button, Input, Footer, Loader } from '../../components';
+import Button from "../../components/Button/Button"
+import Input from "../../components/Input/Input"
+import Footer from "../../components/Footer/Footer"
+import Loader from "../../components/Loader/Loader"
+import { auth } from "../../utils/firebase/firebase.utils";
+import { provider } from "../../utils/firebase/firebase.utils";
+import { signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword } from "firebase/auth"
 
 interface FormFields {
   name: string;
@@ -35,14 +40,18 @@ const SignUp: React.FC = () => {
   const [loadingApple, setLoadingApple] = useState(false);
 
   const redirectToLogin = () => {
-    setTimeout(() => {
-      navigateTo('/login');
-    }, 2500);
+    navigateTo('/login');
   };
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigateTo('/Dashboard');
+    }
+  });
 
   const signInWithGoogle = async () => {
     setLoadingGoogle(true);
-    await signInWithGooglePopup();
+    await signInWithPopup(auth, provider);
     notify('Redirecting you to login page');
     redirectToLogin();
     setLoadingGoogle(false);
@@ -50,7 +59,7 @@ const SignUp: React.FC = () => {
 
   const signInWithApple = async () => {
     setLoadingApple(true);
-    await signInWithGooglePopup();
+    await signInWithPopup(auth, provider);
     notify('Redirecting you to login page');
     redirectToLogin();
     setLoadingApple(false);
@@ -79,6 +88,8 @@ const SignUp: React.FC = () => {
     }
 
     try {
+      await createUserWithEmailAndPassword(auth, email, password)
+      
       const response = await fetch(
         'https://cutly.onrender.com/api/v1/users/register',
         {

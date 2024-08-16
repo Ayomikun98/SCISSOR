@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
-import crossedEye from '../../assets/icons/crossed-eye.svg';
-import eye from '../../assets/icons/eye.svg';
-import googleLogo from '../../assets/icons/google-logo.svg';
-import appleLogo from '../../assets/icons/apple-logo.svg';
+import crossedEye from '/src/icons/crossed-eye.svg';
+import eye from '/src/icons/eye.svg';
+import googleLogo from '/src/icons/google-logo.svg';
+import appleLogo from '/src/icons/apple-logo.svg';
 
 import { ToastContainer } from 'react-toastify';
 import { warn, notify } from '../../App';
-import { Button, Input, Footer, Loader } from '../../components';
+import Button from "../../components/Button/Button"
+import Input from "../../components/Input/Input"
+import Footer from "../../components/Footer/Footer"
+import Loader from "../../components/Loader/Loader"
 import { useAuth } from '../../contexts/UserContext/UserContext';
+import { auth } from "../../utils/firebase/firebase.utils";
+import { provider } from "../../utils/firebase/firebase.utils";
+import { signInWithPopup, onAuthStateChanged, signInWithEmailAndPassword  } from "firebase/auth"
 
 interface FormFields {
   username: string;
@@ -31,18 +36,17 @@ const Login: React.FC = () => {
   const navigateTo = useNavigate();
   const { username, password } = formFields;
 
-  const navigateToDashboard = () => {
-    setTimeout(() => {
-      navigateTo('/dashboard');
-    }, 2500);
-  };
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigateTo('/Dashboard');
+    }
+  });
 
   const signInWithApple = async () => {
     setLoadingApple(true);
     try {
-      await signInWithGooglePopup();
+      await signInWithPopup(auth, provider);
       notify("Successful, you're being redirected");
-      navigateToDashboard();
       setLoadingApple(false);
     } catch (error: any) {
       switch (error.code) {
@@ -73,9 +77,8 @@ const Login: React.FC = () => {
   const signInWithGoogle = async () => {
     setLoadingGoogle(true);
     try {
-      await signInWithGooglePopup();
+      await signInWithPopup(auth, provider);
       notify("Successful, you're being redirected");
-      navigateToDashboard();
       setLoadingGoogle(false);
     } catch (error:any) {
       switch (error.code) {
@@ -125,6 +128,8 @@ const Login: React.FC = () => {
     });
 
     try {
+      await signInWithEmailAndPassword(auth, formFields.username, formFields.password)
+      
       const response = await fetch(
         'https://cutly.onrender.com/api/v1/users/login',
         {
@@ -152,11 +157,9 @@ const Login: React.FC = () => {
         password: formFields.password,
         token: token,
       };
-      localStorage.setItem('user', JSON.stringify(user));
       setUser(user);
       notify("Login success, you're being redirected");
       resetFormFields();
-      navigateToDashboard();
       setLoading(false);
     } catch (error: any) {
       warn(`Error: ${error.message}`);
@@ -164,10 +167,6 @@ const Login: React.FC = () => {
       console.error('Error:', error.message);
     }
   };
-
-  useEffect(() => {
-    if (user) navigateToDashboard();
-  }, []);
 
   return (
     <>

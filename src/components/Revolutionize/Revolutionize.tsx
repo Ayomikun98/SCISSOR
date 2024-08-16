@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '..';
+import Button from '../Button/Button';
 
 const Revolutionize: React.FC = () => {
   return (

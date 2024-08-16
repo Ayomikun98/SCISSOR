@@ -1,11 +1,11 @@
-import { Button } from '..';
+import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import underline from '../../assets/images/underline.png';
-import chainLink from '../../assets/images/linked-chain.png';
-import singleLink from '../../assets/images/link-single.png';
-import blueArrow from '../../assets/images/blue-arrow.svg';
-import cone from '../../assets/images/curved-cone.png';
+import underline from '/src/assets/images/underline.png';
+import chainLink from '/src/assets/images/linked-chain.png';
+import singleLink from '/src/assets/images/link-single.png';
+import blueArrow from '/src/assets/images/blue-arrow.svg';
+import cone from '/src/assets/images/curved-cone.png';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext/UserContext';
 
@@ -13,10 +13,10 @@ const Hero = () => {
   const { user } = useContext(UserContext);
   return (
     <section id="url" className="bg-hero-texture bg-cover bg-bottom pt-16">
-      <div className="flex text-3xl md:text-5xl text-center font-bold leading-[50px] md:leading-[96px] max-w-[31ch] mx-auto mt-16">
+      <div className="text-3xl md:text-5xl text-center font-bold leading-[50px] md:leading-[96px] mx-auto mt-16">
         Optimize Your Online Experience with Our
       </div>
-      <div className="text-3xl md:text-5xl text-center font-bold leading-[50px] md:leading-[96px] max-w-[26ch] mx-auto">
+      <div className="text-3xl md:text-5xl text-center font-bold leading-[50px] md:leading-[96px] mx-auto">
         Advanced
         <span className="text-primary relative">
           {'  '}

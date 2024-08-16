@@ -1,7 +1,7 @@
-import icon1 from '../../assets/icons/why-icon1.svg';
-import icon2 from '../../assets/icons/why-icon2.svg';
-import icon3 from '../../assets/icons/why-icon3.svg';
-import icon4 from '../../assets/icons/why-icon4.svg';
+import icon1 from '/src/icons/why-icon1.svg';
+import icon2 from '/src/icons/why-icon2.svg';
+import icon3 from '/src/icons/why-icon3.svg';
+import icon4 from '/src/icons/why-icon4.svg';
 export const whyData = [
   {
     icon: icon1,

@@ -1,7 +1,7 @@
-import twitter from '../../assets/icons/twitter-logo.svg';
-import instagram from '../../assets/icons/instagram-logo.svg';
-import linkedin from '../../assets/icons/linkedin-logo.svg';
-import facebook from '../../assets/icons/facebook-logo.svg';
+import twitter from '/src/icons/twitter-logo.svg';
+import instagram from '/src/icons/instagram-logo.svg';
+import linkedin from '/src/icons/linkedin-logo.svg';
+import facebook from '/src/icons/facebook-logo.svg';
 
 export const socials = [twitter, instagram, linkedin, facebook];
 export const whyScissor = ['Scissor 101', 'Integrations & API', 'Pricing'];

@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify'
-import { Button, Footer } from '../../components';
+import Button from "../../components/Button/Button"
+import Footer from "../../components/Footer/Footer"
 import { useNavigate } from 'react-router-dom';
 import { inform, notify, warn } from '../../App';
 
