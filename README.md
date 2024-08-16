@@ -1,6 +1,6 @@
 # Project Scissor
 
-A url shortening application, still in progress...
+A url shortening application, still needs to be worked on, it is still in progress 
 
 ## Table of Contents
 
@@ -16,18 +16,18 @@ A url shortening application, still in progress...
 
 ## About
 
-Brief is the new black, this is what inspires the team at Scissor. In today’s world, it’s important to keep things as short as possible, and this applies to more concepts than you may realize. From music, speeches, to wedding receptions, brief is the new black. Scissor is a simple tool which makes URLs as short as possible.
+In today’s fast-paced world, brevity is key. From music and speeches to wedding receptions, keeping things concise is the trend. Scissor is a handy tool that shortens URLs, making them as brief as possible.
 
 ## Features
 
 - URL Shortening:
-Scissor allows users to shorten URLs by pasting a long URL into the Scissor platform and a shorter URL gets automatically generated. The shortened URL is designed to be as short as possible, making it easy to share on social media or through other channels.
+Scissor enables users to convert long URLs into short, manageable links. Simply paste a long URL into the Scissor platform, and a shorter version is generated instantly. These shortened URLs are ideal for sharing on social media and other platforms.
 - Custom URLs:
-Scissor also allows users to customize their shortened URLs. Users can choose their own custom domain name and customize the URL to reflect their brand or content. This feature is particularly useful for individuals or small businesses who want to create branded links for their 
+With Scissor, users can create personalized shortened URLs. Choose a custom domain name and tailor the URL to fit your brand or content. This feature is perfect for individuals and small businesses looking to create branded links.
 - QR Code Generation:
-Scissor allows users to also generate QR codes for the shortened URLs. Users can download the QR code image and use it in their promotional materials or/and on their website. This feature will be implemented using a third-party QR code generator API, which can be integrated into the Scissor platform.
+Scissor also generates QR codes for your shortened URLs. Users can download these QR code images for use in promotional materials or on their websites. This feature is powered by a third-party QR code generator API integrated into the Scissor platform.
 - Analytics:
-Scissor provides basic analytics that allow users to track their shortened URL's performance. Users can see how many clicks their shortened URL has received and where the clicks are coming from.
+Scissor offers basic analytics to help users monitor the performance of their shortened URLs. Track the number of clicks and see where the traffic is coming from, providing valuable insights into your link’s effectiveness.
 
 ## Getting Started
 
@@ -35,15 +35,14 @@ Follow these instructions to set up and run the project locally on your machine.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) (version 19.7.0)
-- [npm](https://www.npmjs.com) or [Yarn](https://yarnpkg.com) (preferred)
-
+- [Node.js](https://nodejs.org) (version 20.11.0)
+- [npm](https://www.npmjs.com)
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/rahmlad-aramide/scissor.git
+   git clone https://github.com/Ayomikun98/SCISSOR.git
    ```
 
 2. Navigate to the project directory:
@@ -55,8 +54,6 @@ Follow these instructions to set up and run the project locally on your machine.
 3. Install the dependencies:
 
    ```bash
-   yarn install
-   # or 
    npm install
    ```
 
@@ -65,8 +62,6 @@ Follow these instructions to set up and run the project locally on your machine.
 1. Start the development server:
 
    ```bash
-   yarn dev
-   # or
    npm run dev
    ```
 
@@ -78,9 +73,7 @@ Follow these instructions to set up and run the project locally on your machine.
 
 To create a production-ready build of your project, run the following command:
 
-```bash
-yarn build
-#or 
+```bash 
 npm run build
 ```
 
@@ -95,10 +88,10 @@ The backend api used: `http://cutly.onrender.com` and its documentation can be a
 These are the main dependencies and their versions used in the project.
 
 - [React](https://reactjs.org) (version 18.2.0)
-- [React Router Dom](https://reactrouter.com) (version 6.11.2)
+- [React Router Dom](https://reactrouter.com) (version 6.14.1)
 - [React Router Hashlink](https://github.com/rafgraph/react-router-hash-link) (version 2.4.3)
-- [Firebase](https://firebase.google.com) (version 9.22.1)
-- [React Toastify](https://fkhadra.github.io/react-toastify/introduction) (version 9.1.3)
+- [Firebase](https://firebase.google.com) (version 10.13.0)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction) (version 10.0.5)
 - [Clipboard Copy](https://www.npmjs.com/package/clipboard-copy) (version 4.0.1)
 
 ## Other Activities
